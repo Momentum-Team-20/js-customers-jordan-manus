@@ -1,0 +1,12 @@
+header {
+  border: 5px solid black;
+  padding: 5px;
+}
+
+.customer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid green;
+}
