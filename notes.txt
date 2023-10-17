@@ -1,0 +1,3 @@
+- create index page for js DOM
+- create function to access each object
+- create function to put each object in HTML
