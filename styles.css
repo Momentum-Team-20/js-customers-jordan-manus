@@ -1,12 +1,47 @@
 header {
-  border: 5px solid black;
+  /* border: 5px solid black; */
   padding: 5px;
+  text-align: justify;
 }
 
-.customer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid green;
+/* overides browser's css */
+.customerContainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 50px;
 }
+
+h4, p, div, img {
+  margin: 5px 0;
+}
+
+
+/* styles each customer's box */
+.customer {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  /* border: 5px solid green; */
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+/* styles customer image */
+img {
+  border-radius: 100px 200px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+}
+
+/* styles email */
+p {
+  font-size: smaller;
+  text-decoration-line: underline;
+  text-decoration-color: blue;
+  color: blue;
+}
+

@@ -5,6 +5,13 @@ if(customerContainer){
   console.log('fail')
 }
 
+function capitalize(name){
+  let firstLetter = name.charAt(0);
+  let remainingLetters = name.substring(1);
+  firstLetter = firstLetter.toUpperCase();
+  return firstLetter + remainingLetters;
+}
+
 function quickList(customerArray){
   for (let customer of customerArray) {
     console.log(`this is: ${customer.name.first} ${customer.name.last}`);
@@ -29,7 +36,7 @@ function buildCustomers(customerArray, usStates) {
 
     // creates customer name
     let customerName = document.createElement('h4');
-    customerName.innerText = `${customer.name.title} ${customer.name.first}  ${customer.name.last}`;
+    customerName.innerText = `${capitalize(customer.name.title)} ${capitalize(customer.name.first)}  ${capitalize(customer.name.last)}`;
     // adds name to customer box
     box.appendChild(customerName);
     // adds name to customer conatainer
@@ -37,15 +44,19 @@ function buildCustomers(customerArray, usStates) {
     // addThings(box, customerName);
 
     // adds email
-    let customerEmail = document.createElement('p');
-    customerEmail.innerText = customer.email;
-    box.appendChild(customerEmail);
+    let email = document.createElement('p');
+    email.innerText = customer.email;
+    box.appendChild(email);
     customerContainer.appendChild(box);
 
     // adds address
-    let address = document.createElement('address');
-    address.innerText = `${customer.location.street.number} ${customer.location.street.name} ${customer.location.city} ${nameToAbbr(customer.location.state)} ${customer.location.postcode}`;
-    box.appendChild(address);
+    let address1 = document.createElement('address');
+    address1.innerText = `${customer.location.street.number} ${customer.location.street.name}`;
+    box.appendChild(address1);
+    customerContainer.appendChild(box);
+    let address2 = document.createElement('address');
+    address2.innerText = `${customer.location.city} ${nameToAbbr(customer.location.state)} ${customer.location.postcode}`;
+    box.appendChild(address2);
     customerContainer.appendChild(box);
 
     // adds date of birth
