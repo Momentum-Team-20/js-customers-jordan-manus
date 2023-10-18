@@ -1,11 +1,16 @@
 let customerContainer = document.querySelector('.customerContainer');
 
-
+// capitalizes first letter of each word
 function capitalize(name){
-  let firstLetter = name.charAt(0);
-  let remainingLetters = name.substring(1);
-  firstLetter = firstLetter.toUpperCase();
+  let firstLetter = name.charAt(0).toUpperCase();
+  let remainingLetters = name.substring(1).toLowerCase();
   return firstLetter + remainingLetters;
+}
+
+// adds elements to box
+function addThings(box, element) {
+  box.appendChild(element);
+  return box;
 }
 
 
@@ -18,16 +23,16 @@ function buildCustomers(customerArray, usStates) {
     let photo = document.createElement('img');
     photo.src = customer.picture.large;
     photo.alt = 'customer image';
-    box.appendChild(photo);
+    addThings(box, photo);
 
     // creates customer name
     let customerName = document.createElement('h4');
     customerName.innerText = `${capitalize(customer.name.title)} ${capitalize(customer.name.first)}  ${capitalize(customer.name.last)}`;
-    // adds name to customer box
     addThings(box, customerName);
 
     // adds email
-    let email = document.createElement('p');
+    let email = document.createElement('a');
+    email.href = `mialto:${customer.email}`;
     email.innerText = customer.email;
     addThings(box, email);
 
@@ -56,12 +61,6 @@ function buildCustomers(customerArray, usStates) {
     // adds box to customerContainer class in html
     customerContainer.appendChild(box);
   }
-}
-
-
-function addThings(box, element) {
-  box.appendChild(element);
-  return box;
 }
 
 
